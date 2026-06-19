@@ -7,14 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
-
     @GetMapping("/hello")
     public String hello(){
         return "Hello World!";
     }
 
-   @PostMapping("/hello")
-    public String helloPost(@RequestBody String name){
-        return "Hello" + name + "!";
-   }
+    @PostMapping("/hello")
+    public HelloResponse helloPost(@RequestBody String name){
+        return new HelloResponse("Hello" + name + "!");
+    }
 }
